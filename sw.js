@@ -1,4 +1,4 @@
-const CACHE='babes-plan-2026-09-03-v7';
+const CACHE='babes-plan-2026-09-03-v8';
 const CORE=['./','./index.html','./manifest.webmanifest','./assets/icon.svg','./assets/magical-taste.jpg','./assets/allen-lambert.jpg','./assets/map-regional.png','./assets/map-downtown.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));

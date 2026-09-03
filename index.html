@@ -7,7 +7,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <title>Babes Full Day Plan</title>
-  <meta name="description" content="Guelph to Mississauga and Toronto on Thursday, September 3, 2026 — two realistic versions, one 10:45 a.m. meet, exact movement, food, hydration, maps and backups.">
+  <meta name="description" content="Guelph to Mississauga and Toronto on Thursday, September 3, 2026 — two realistic versions, one 11:00 a.m. meet, exact movement, food, hydration, maps and backups.">
   <style>
     :root{
       --ink:#101c2c;--paper:#f7f4ec;--card:#fffdf8;--muted:#65717e;--line:#d9d8d2;
@@ -108,10 +108,10 @@
       <div>
         <div class="kicker"><svg class="icon sm"><use href="#i-calendar"/></svg> Thursday · September 3, 2026 · three friends</div>
         <h1>Babes Full Day Plan</h1>
-        <p>Meet at 10:45 a.m. — late enough that nobody wastes the morning, but still 43 minutes before the 11:28 GO bus. Square One is a pit stop, Mini Indy stays, the huge halal meal stays, and Toronto is built around interesting architecture, photos, waterfront chill time and a clean way home.</p>
+        <p>Meet at 11:00 a.m. at Guelph Central — 15 minutes before the 11:15 GO Route 29. Be there on time; this is a short meet-and-board window, not a breakfast stop. Square One is a pit stop, Mini Indy stays, the huge halal meal stays, and Toronto is built around interesting architecture, photos, waterfront chill time and a clean way home.</p>
         <div class="hero-badges">
-          <span class="hero-badge hot"><svg class="icon sm"><use href="#i-clock"/></svg> Meet 10:45 a.m.</span>
-          <span class="hero-badge"><svg class="icon sm"><use href="#i-bus"/></svg> Route 29 · 11:28 a.m.</span>
+          <span class="hero-badge hot"><svg class="icon sm"><use href="#i-clock"/></svg> Meet 11:00 a.m.</span>
+          <span class="hero-badge"><svg class="icon sm"><use href="#i-bus"/></svg> Route 29 · 11:15 a.m.</span>
           <span class="hero-badge"><svg class="icon sm"><use href="#i-play"/></svg> 3 kart laps · $9 each</span>
         </div>
       </div>
@@ -130,7 +130,7 @@
   </section>
 
   <div class="morning-alert" role="status">
-    <div class="wrap"><svg class="icon"><use href="#i-alert"/></svg><div><b>Guelph fog advisory this morning.</b><span>Environment Canada warns of dense patches and suddenly reduced visibility; it should dissipate this morning. If anyone is driving to the 10:45 meet, leave extra time. <a href="https://weather.gc.ca/en/location/index.html?coords=43.544%2C-80.249" target="_blank" rel="noreferrer">Live alert ↗</a></span></div></div>
+    <div class="wrap"><svg class="icon"><use href="#i-alert"/></svg><div><b>Guelph fog advisory this morning.</b><span>Environment Canada warns of dense patches and suddenly reduced visibility; it should dissipate this morning. If anyone is driving to the 11:00 meet, leave extra time. <a href="https://weather.gc.ca/en/location/index.html?coords=43.544%2C-80.249" target="_blank" rel="noreferrer">Live alert ↗</a></span></div></div>
   </div>
 
   <nav class="planner-bar" aria-label="Choose itinerary">
@@ -266,7 +266,7 @@
     <section id="backup">
       <div class="section-head"><div><div class="mini-label">If reality changes</div><h2>Three backups — that's enough</h2></div><p>No twenty-item contingency manual.</p></div>
       <div class="backup-grid">
-        <article class="backup-card danger"><h3>Miss the 11:28 GO bus?</h3><p>Stop using the fixed times on this page. Open GO's live planner, take the next sensible Square One option, and remove 401 Richmond first if the delay threatens its 6 p.m. museum close.</p></article>
+        <article class="backup-card danger"><h3>Miss the 11:15 GO bus?</h3><p>Stop using the fixed times on this page. Open GO's live planner, take the next sensible Square One option, and remove 401 Richmond first if the delay threatens its 6 p.m. museum close.</p></article>
         <article class="backup-card warning"><h3>Karts closed?</h3><p><b>If dry:</b> use Kariya Park only as a short 25–30 minute Japanese-garden/photo backup near Square One. <b>If wet/raining:</b> stay indoors, use the washroom/coffee stop, and take the earliest sensible GO bus downtown. Do not replace wet karts with a wet “park tour.”</p><a class="route-link" href="https://www.google.com/maps/dir/?api=1&origin=Square+One+GO+Bus+Terminal&destination=Kariya+Park+Mississauga&travelmode=walking" target="_blank">Kariya directions ↗</a></article>
         <article class="backup-card good"><h3>Two return anchors</h3><p><b>Plan B:</b> Union 10:34 p.m. → Guelph Central 12:05 a.m. <b>Plan A:</b> Kipling 11:55 p.m. → Guelph Central about 1:35 a.m. If 1:35 is too late once you're tired, bail to the 10:34 train.</p></article>
       </div>
@@ -302,10 +302,10 @@
     };
 
     const plans={
-      A:{name:'Plan A - Hidden spots + late chill',summary:'Same 10:45 meet. Mini Indy and the big meal are fixed priorities; the evening is unusual architecture, sunset, snacks and actual hanging out instead of mall/arcade filler.',snap:[['Meet','10:45 a.m.','University Centre - 43 min before GO'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['Toronto','3:40 p.m.','GO 21E at 2:38'],['Guelph Central','1:35 a.m.','late Route 29']],risk:'10:45 is the sweet spot: 11:00 only leaves 28 minutes before the bus, while 10:30 is safe but gives you almost an hour to kill. Protect the 11:28 GO 29, 2:38 GO 21E and 11:55 Kipling GO 29. Everything between those anchors can breathe.',budget:'~$230-260',budgetText:'Comfortable group cap for three: $40 GO group pass + $27 karts + roughly $20 TTC + about $78 for the value meal/drinks + a generous coffee/water/late-snack buffer. Roughly $77-87 each; keep extra room only if you add food or shopping.',events:[
-        ['10:45','11:10','buffer','Meet at University Centre - quick gather + buffer','Meet, fill water, make sure everyone has the pass/phones ready, and leave together. Twenty-five minutes is enough to absorb a slightly late friend without wasting the whole morning.','25 min','uofg'],
-        ['11:10','11:28','walk','University Centre - GO loading area','Walk out together. Be at the Route 29 stop early and activate the group pass at least five minutes before boarding.','18 min','uofg'],
-        ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal. This is the same trip that leaves Guelph Central at 11:15.','72 min','square'],
+      A:{name:'Plan A - Hidden spots + late chill',summary:'Same 11:00 meet at Guelph Central. Mini Indy and the big meal are fixed priorities; the evening is unusual architecture, sunset, snacks and actual hanging out instead of mall/arcade filler.',snap:[['Meet','11:00 a.m.','Guelph Central - 15 min before GO'],['First GO bus','11:15 a.m.','Route 29 from Guelph Central'],['Toronto','3:40 p.m.','GO 21E at 2:38'],['Guelph Central','1:35 a.m.','late Route 29']],risk:'Meet at 11:00 at Guelph Central and treat 11:15 as fixed. Fifteen minutes is enough only if everyone is punctual, so arrive a few minutes early if possible. Protect the 11:15 GO 29, 2:38 GO 21E and 11:55 Kipling GO 29. Everything between those anchors can breathe.',budget:'~$230-260',budgetText:'Comfortable group cap for three: $40 GO group pass + $27 karts + roughly $20 TTC + about $78 for the value meal/drinks + a generous coffee/water/late-snack buffer. Roughly $77-87 each; keep extra room only if you add food or shopping.',events:[
+        ['11:00','11:10','buffer','Meet at Guelph Central - quick gather','Meet at the station, make sure everyone has phones/pass ready, and activate the group pass if needed. No breakfast mission.','10 min','guelph'],
+        ['11:10','11:15','buffer','Line up for GO Route 29','Be at the bus stop and ready to board. Do not use this five-minute block for coffee.','5 min','guelph'],
+        ['11:15','12:40','bus','GO Route 29 - Guelph Central - Square One','Direct Route 29 trip to Square One GO Bus Terminal.','85 min','square'],
         ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom first. Refill or buy water. Coffee or a tiny snack only if you want it. You have been here before - no mall wandering.','20 min','square'],
         ['1:00','1:10','walk','Square One - Mississauga Mini Indy','Walk straight to 99 Rathburn Rd W, across from the Square One area.','10 min','indy'],
         ['1:10','1:50','play','Mini Indy - 3 laps each','Thursday deal is $3 per lap including HST, so three laps are $9 each / $27 for all three. The block includes check-in, helmets and queue time - not forty minutes of driving.','40 min','indy'],
@@ -330,10 +330,10 @@
         ['11:35','11:55','buffer','Kipling - find GO Route 29','Use the live board and line up before the late bus.','20 min','kipling'],
         ['11:55','1:35','bus','GO Route 29 - Kipling - Guelph Central','Late direct return on the active Sept. 3 weekday schedule. If everyone is done much earlier, the 10:34 p.m. Union train from Plan B is the clean bailout.','100 min','guelph']
       ]},
-      B:{name:'Plan B - The Odyssey IMAX',summary:'Same 10:45 meet, karts and big meal. Keep one hidden Toronto stop, then do the 6:40 p.m. Odyssey IMAX — confirmed again this morning — and take the clean 10:34 p.m. train home.',snap:[['Meet','10:45 a.m.','same 43-minute pre-GO buffer'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['IMAX','6:40 p.m.','re-check seats before buying'],['Guelph Central','12:05 a.m.','10:34 direct train']],risk:'10:45 gives enough room for someone to be a little late without turning the morning into dead time. The movie plan is tighter after 6:40: re-check seats before paying, then walk directly to Union after the film for the 10:34 train.',budget:'~$275-310',budgetText:'Comfortable group cap for three: the same GO pass, $27 karts, value meal, TTC and a placeholder for three IMAX tickets plus snacks. Roughly $92-103 each, but Cineplex checkout is the final movie price.',events:[
-        ['10:45','11:10','buffer','Meet at University Centre - quick gather + buffer','Meet, fill water, make sure everyone has the pass/phones ready, and leave together. No breakfast mission.','25 min','uofg'],
-        ['11:10','11:28','walk','University Centre - GO loading area','Walk out together and activate the GO group pass at least five minutes before boarding.','18 min','uofg'],
-        ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal.','72 min','square'],
+      B:{name:'Plan B - The Odyssey IMAX',summary:'Same 11:00 meet at Guelph Central, karts and big meal. Keep one hidden Toronto stop, then do the 6:40 p.m. Odyssey IMAX — confirmed again this morning — and take the clean 10:34 p.m. train home.',snap:[['Meet','11:00 a.m.','Guelph Central - 15 min before GO'],['First GO bus','11:15 a.m.','Route 29 from Guelph Central'],['IMAX','6:40 p.m.','re-check seats before buying'],['Guelph Central','12:05 a.m.','10:34 direct train']],risk:'Meet at 11:00 at Guelph Central for the 11:15 Route 29. If somebody is habitually late, tell them 10:55 because there is not much recovery room. The movie plan is tighter after 6:40: re-check seats before paying, then walk directly to Union after the film for the 10:34 train.',budget:'~$275-310',budgetText:'Comfortable group cap for three: the same GO pass, $27 karts, value meal, TTC and a placeholder for three IMAX tickets plus snacks. Roughly $92-103 each, but Cineplex checkout is the final movie price.',events:[
+        ['11:00','11:10','buffer','Meet at Guelph Central - quick gather','Meet at the station, make sure everyone has phones/pass ready, and activate the group pass if needed. No breakfast mission.','10 min','guelph'],
+        ['11:10','11:15','buffer','Line up for GO Route 29','Be ready at the bus stop before departure.','5 min','guelph'],
+        ['11:15','12:40','bus','GO Route 29 - Guelph Central - Square One','Direct Route 29 trip to Square One GO Bus Terminal.','85 min','square'],
         ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom, water, optional coffee/small snack. No mall exploring.','20 min','square'],
         ['1:00','1:10','walk','Square One - Mississauga Mini Indy','Walk to 99 Rathburn Rd W.','10 min','indy'],
         ['1:10','1:50','play','Mini Indy - 3 laps each','Three Thursday laps = $9 each, HST included.','40 min','indy'],

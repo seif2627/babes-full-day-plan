@@ -24,7 +24,7 @@ This project deliberately preserves the visual language of the original ChatGPT 
 
 ## Current itinerary rules
 
-- Two plans only, both meeting at 10:45 a.m. for the 11:28 a.m. Route 29 departure.
+- Two plans only, both meeting at 11:00 a.m. at Guelph Central for the 11:15 a.m. Route 29 departure.
 - No scheduled breakfast.
 - Square One is a 20-minute washroom / water / coffee stop.
 - Mini Indy: 3 Thursday-discount laps per person.
