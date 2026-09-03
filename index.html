@@ -7,7 +7,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <title>Babes Full Day Plan</title>
-  <meta name="description" content="Guelph to Mississauga and Toronto on Thursday, September 3, 2026 — two realistic versions, one 10:00 a.m. start, exact movement, food, hydration, maps and backups.">
+  <meta name="description" content="Guelph to Mississauga and Toronto on Thursday, September 3, 2026 — two realistic versions, one 10:45 a.m. meet, exact movement, food, hydration, maps and backups.">
   <style>
     :root{
       --ink:#101c2c;--paper:#f7f4ec;--card:#fffdf8;--muted:#65717e;--line:#d9d8d2;
@@ -73,12 +73,13 @@
     .route-swipe-hint{font-size:.69rem;color:var(--muted);margin:8px 2px 0}
     @media(max-width:650px){.kicker{font-size:.66rem;letter-spacing:.09em}.route-chip{width:148px;flex-basis:148px;min-height:136px}.route-connector{width:66px;flex-basis:66px}.route-strip{min-height:144px}.route-schematic{padding:10px}.kicker{flex-wrap:wrap}}
     .geo-mini-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:12px;margin-bottom:12px}
-    .geo-mini{position:relative;overflow:hidden;background:linear-gradient(180deg,#edf7fb,#f8f5ed);border:1px solid var(--line);border-radius:18px;min-height:230px;box-shadow:0 7px 22px rgba(16,28,44,.05)}
-    .geo-mini svg{display:block;width:100%;height:230px}.geo-mini .map-caption{position:absolute;left:12px;top:10px;background:rgba(255,253,248,.92);border:1px solid #d8dad5;border-radius:10px;padding:6px 9px;font-size:.67rem;font-weight:950;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(5px)}
+    .geo-mini{position:relative;overflow:hidden;background:linear-gradient(180deg,#edf7fb,#f8f5ed);border:1px solid var(--line);border-radius:18px;box-shadow:0 7px 22px rgba(16,28,44,.05)}
+    .geo-mini svg{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}.geo-mini .map-caption{position:absolute;left:12px;top:10px;background:rgba(255,253,248,.94);border:1px solid #d8dad5;border-radius:10px;padding:6px 9px;font-size:.67rem;font-weight:950;letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(5px)}
     .geo-mini .map-open{position:absolute;right:10px;top:9px;display:inline-flex;align-items:center;gap:5px;text-decoration:none;background:var(--lime);color:var(--ink);border-radius:10px;padding:7px 9px;font-size:.67rem;font-weight:950;min-height:36px}
     .geo-mini-note{font-size:.74rem;color:var(--muted);margin:0 2px 12px}.geo-mini-note b{color:var(--ink)}
     .route-connector .planned{color:#4c5965;font-size:.58rem;font-weight:850;text-transform:none;letter-spacing:0;margin:1px 0 4px}.route-connector a.operator{background:var(--ink);color:#fff;border-color:var(--ink)}
-    @media(max-width:700px){.geo-mini-grid{display:grid;grid-auto-flow:column;grid-auto-columns:88%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:3px;scrollbar-width:thin}.geo-mini{scroll-snap-align:start}.geo-mini,.geo-mini svg,.geo-mini-grid .geo-mini:last-child,.geo-mini-grid .geo-mini:last-child svg{min-height:205px;height:205px}}
+    .geo-legend{padding:12px;background:rgba(255,253,248,.98)}.geo-legend-title{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;font-weight:950;color:var(--muted);margin-bottom:7px}.geo-leg{display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:8px;align-items:center;padding:8px 8px 8px 9px;border-top:1px solid var(--line);border-left:3px solid var(--leg,var(--buffer));text-decoration:none;color:var(--ink)}.geo-leg:first-of-type{border-top:0}.geo-leg time{font-size:.72rem;font-weight:950}.geo-leg b{display:block;font-size:.78rem;line-height:1.15}.geo-leg span{display:block;font-size:.66rem;color:var(--muted);margin-top:2px}.geo-leg em{font-style:normal;font-size:.61rem;font-weight:950;border:1px solid #ccd0ce;border-radius:8px;padding:5px 7px;background:#fff;white-space:nowrap}.geo-leg.operator em{background:var(--ink);border-color:var(--ink);color:#fff}
+    @media(max-width:700px){.geo-mini-grid{display:grid;grid-auto-flow:column;grid-auto-columns:92%;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:3px;scrollbar-width:thin}.geo-mini{scroll-snap-align:start}.geo-legend{padding:11px}.geo-leg{grid-template-columns:54px minmax(0,1fr);gap:5px 8px}.geo-leg em{grid-column:2;justify-self:start;padding:5px 8px}}
 </style>
 </head>
 <body>
@@ -107,9 +108,9 @@
       <div>
         <div class="kicker"><svg class="icon sm"><use href="#i-calendar"/></svg> Thursday · September 3, 2026 · three friends</div>
         <h1>Babes Full Day Plan</h1>
-        <p>One 10:00 a.m. start. Square One is a pit stop, Mini Indy stays, the huge halal meal stays, and Toronto is now built around genuinely interesting indoor architecture, photos, waterfront chill time and a clean way home.</p>
+        <p>Meet at 10:45 a.m. — late enough that nobody wastes the morning, but still 43 minutes before the 11:28 GO bus. Square One is a pit stop, Mini Indy stays, the huge halal meal stays, and Toronto is built around interesting architecture, photos, waterfront chill time and a clean way home.</p>
         <div class="hero-badges">
-          <span class="hero-badge hot"><svg class="icon sm"><use href="#i-clock"/></svg> Meet 10:00 a.m.</span>
+          <span class="hero-badge hot"><svg class="icon sm"><use href="#i-clock"/></svg> Meet 10:45 a.m.</span>
           <span class="hero-badge"><svg class="icon sm"><use href="#i-bus"/></svg> Route 29 · 11:28 a.m.</span>
           <span class="hero-badge"><svg class="icon sm"><use href="#i-play"/></svg> 3 kart laps · $9 each</span>
         </div>
@@ -129,7 +130,7 @@
   </section>
 
   <div class="morning-alert" role="status">
-    <div class="wrap"><svg class="icon"><use href="#i-alert"/></svg><div><b>Guelph fog advisory this morning.</b><span>Environment Canada warns of dense patches and suddenly reduced visibility; it should dissipate this morning. If anyone is driving to the 10:00 meet, leave extra time. <a href="https://weather.gc.ca/en/location/index.html?coords=43.544%2C-80.249" target="_blank" rel="noreferrer">Live alert ↗</a></span></div></div>
+    <div class="wrap"><svg class="icon"><use href="#i-alert"/></svg><div><b>Guelph fog advisory this morning.</b><span>Environment Canada warns of dense patches and suddenly reduced visibility; it should dissipate this morning. If anyone is driving to the 10:45 meet, leave extra time. <a href="https://weather.gc.ca/en/location/index.html?coords=43.544%2C-80.249" target="_blank" rel="noreferrer">Live alert ↗</a></span></div></div>
   </div>
 
   <nav class="planner-bar" aria-label="Choose itinerary">
@@ -167,12 +168,12 @@
     </section>
 
     <section id="map">
-      <div class="section-head"><div><div class="mini-label">Built into this page</div><h2>Your route map</h2></div><p>A real geographic overview stays on the page without loading map tiles. The swipe strip below keeps every stop and planned time easy to follow.</p></div>
+      <div class="section-head"><div><div class="mini-label">Built into this page</div><h2>Your route map</h2></div><p>The maps are larger now and the meaningless point-to-point lines are gone. Each map has the actual planned leg times directly underneath it; tap a row for the correct GO/TTC planner or walking directions.</p></div>
       <div class="geo-mini-grid">
-        <div class="geo-mini"><div class="map-caption">Guelph → Mississauga → Toronto</div><a class="map-open" href="https://www.google.com/maps/@?api=1&map_action=map&center=43.59%2C-79.73&zoom=9&layer=transit" target="_blank" rel="noreferrer">Open map ↗</a><svg id="overviewMap" viewBox="0 0 720 230" role="img" aria-label="Static geographic overview of Guelph, Square One and Toronto"></svg></div>
-        <div class="geo-mini"><div class="map-caption">Downtown detail</div><a class="map-open" href="https://www.google.com/maps/@?api=1&map_action=map&center=43.646%2C-79.389&zoom=14" target="_blank" rel="noreferrer">Open map ↗</a><svg id="downtownMap" viewBox="0 0 430 230" role="img" aria-label="Static geographic map of downtown Toronto stops"></svg></div>
+        <div class="geo-mini"><div class="map-caption">Guelph → Mississauga → Toronto</div><a class="map-open" href="https://www.google.com/maps/@?api=1&map_action=map&center=43.59%2C-79.73&zoom=9" target="_blank" rel="noreferrer">Open area ↗</a><svg id="overviewMap" viewBox="0 0 720 600" role="img" aria-label="Static geographic overview of Guelph, Square One and Toronto"></svg><div class="geo-legend" id="overviewLegend"></div></div>
+        <div class="geo-mini"><div class="map-caption">Downtown detail</div><a class="map-open" href="https://www.google.com/maps/@?api=1&map_action=map&center=43.646%2C-79.389&zoom=14" target="_blank" rel="noreferrer">Open area ↗</a><svg id="downtownMap" viewBox="0 0 430 500" role="img" aria-label="Static geographic map of downtown Toronto stops"></svg><div class="geo-legend" id="downtownLegend"></div></div>
       </div>
-      <p class="geo-mini-note"><b>Important:</b> Google’s universal Maps links cannot lock a transit trip to our future departure time. So GO/TTC buttons below open the operator planner instead of pretending the current-time result is our schedule. Walking buttons still open Google Maps normally.</p>
+      <p class="geo-mini-note"><b>Why the map itself does not pretend to route transit:</b> Google's public click-through Maps URLs cannot reliably lock our future departure time. The rows under each map show the planned time first, then open GO/TTC for transit or Google Maps for walking.</p>
       <div class="route-schematic" id="routeSchematic" aria-live="polite"></div>
       <div class="route-map-note"><svg class="icon"><use href="#i-map"/></svg><div><b>Fast by design.</b> The maps above are generated locally from the itinerary coordinates: no Leaflet, no map tiles, no giant world view. Use Google Maps for walking/navigation and GO/TTC for time-sensitive transit.</div></div>
     </section>
@@ -301,8 +302,8 @@
     };
 
     const plans={
-      A:{name:'Plan A - Hidden spots + late chill',summary:'Same 10:00 start. Mini Indy and the big meal are fixed priorities; the evening is unusual architecture, sunset, snacks and actual hanging out instead of mall/arcade filler.',snap:[['Meet','10:00 a.m.','University Centre - no breakfast mission'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['Toronto','3:40 p.m.','GO 21E at 2:38'],['Guelph Central','1:35 a.m.','late Route 29']],risk:'Best if a 1:35 a.m. Guelph arrival is acceptable. Protect the 11:28 GO 29, 2:38 GO 21E and 11:55 Kipling GO 29. Everything between those anchors can breathe.',budget:'~$230-260',budgetText:'Comfortable group cap for three: $40 GO group pass + $27 karts + roughly $20 TTC + about $78 for the value meal/drinks + a generous coffee/water/late-snack buffer. Roughly $77-87 each; keep extra room only if you add food or shopping.',events:[
-        ['10:00','11:10','buffer','Meet at University Centre - optional tiny bite only','Wait for everyone, fill water and charge phones. If somebody is actually hungry, grab one coffee or light item. Do not schedule breakfast.','70 min','uofg'],
+      A:{name:'Plan A - Hidden spots + late chill',summary:'Same 10:45 meet. Mini Indy and the big meal are fixed priorities; the evening is unusual architecture, sunset, snacks and actual hanging out instead of mall/arcade filler.',snap:[['Meet','10:45 a.m.','University Centre - 43 min before GO'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['Toronto','3:40 p.m.','GO 21E at 2:38'],['Guelph Central','1:35 a.m.','late Route 29']],risk:'10:45 is the sweet spot: 11:00 only leaves 28 minutes before the bus, while 10:30 is safe but gives you almost an hour to kill. Protect the 11:28 GO 29, 2:38 GO 21E and 11:55 Kipling GO 29. Everything between those anchors can breathe.',budget:'~$230-260',budgetText:'Comfortable group cap for three: $40 GO group pass + $27 karts + roughly $20 TTC + about $78 for the value meal/drinks + a generous coffee/water/late-snack buffer. Roughly $77-87 each; keep extra room only if you add food or shopping.',events:[
+        ['10:45','11:10','buffer','Meet at University Centre - quick gather + buffer','Meet, fill water, make sure everyone has the pass/phones ready, and leave together. Twenty-five minutes is enough to absorb a slightly late friend without wasting the whole morning.','25 min','uofg'],
         ['11:10','11:28','walk','University Centre - GO loading area','Walk out together. Be at the Route 29 stop early and activate the group pass at least five minutes before boarding.','18 min','uofg'],
         ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal. This is the same trip that leaves Guelph Central at 11:15.','72 min','square'],
         ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom first. Refill or buy water. Coffee or a tiny snack only if you want it. You have been here before - no mall wandering.','20 min','square'],
@@ -329,8 +330,8 @@
         ['11:35','11:55','buffer','Kipling - find GO Route 29','Use the live board and line up before the late bus.','20 min','kipling'],
         ['11:55','1:35','bus','GO Route 29 - Kipling - Guelph Central','Late direct return on the active Sept. 3 weekday schedule. If everyone is done much earlier, the 10:34 p.m. Union train from Plan B is the clean bailout.','100 min','guelph']
       ]},
-      B:{name:'Plan B - The Odyssey IMAX',summary:'Same 10:00 start, karts and big meal. Keep one hidden Toronto stop, then do the 6:40 p.m. Odyssey IMAX — confirmed again this morning — and take the clean 10:34 p.m. train home.',snap:[['Meet','10:00 a.m.','same start'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['IMAX','6:40 p.m.','re-check seats before buying'],['Guelph Central','12:05 a.m.','10:34 direct train']],risk:'Movie plan is tighter after 6:40. The 6:40 p.m. listing was confirmed again this morning; re-check seats before paying. After the film, Union matters more than snacks: walk directly there for the 10:34 train.',budget:'~$275-310',budgetText:'Comfortable group cap for three: the same GO pass, $27 karts, value meal, TTC and a placeholder for three IMAX tickets plus snacks. Roughly $92-103 each, but Cineplex checkout is the final movie price.',events:[
-        ['10:00','11:10','buffer','Meet at University Centre - optional tiny bite only','Wait for everyone, fill water and charge phones. Tiny snack only if somebody is hungry - no breakfast mission.','70 min','uofg'],
+      B:{name:'Plan B - The Odyssey IMAX',summary:'Same 10:45 meet, karts and big meal. Keep one hidden Toronto stop, then do the 6:40 p.m. Odyssey IMAX — confirmed again this morning — and take the clean 10:34 p.m. train home.',snap:[['Meet','10:45 a.m.','same 43-minute pre-GO buffer'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['IMAX','6:40 p.m.','re-check seats before buying'],['Guelph Central','12:05 a.m.','10:34 direct train']],risk:'10:45 gives enough room for someone to be a little late without turning the morning into dead time. The movie plan is tighter after 6:40: re-check seats before paying, then walk directly to Union after the film for the 10:34 train.',budget:'~$275-310',budgetText:'Comfortable group cap for three: the same GO pass, $27 karts, value meal, TTC and a placeholder for three IMAX tickets plus snacks. Roughly $92-103 each, but Cineplex checkout is the final movie price.',events:[
+        ['10:45','11:10','buffer','Meet at University Centre - quick gather + buffer','Meet, fill water, make sure everyone has the pass/phones ready, and leave together. No breakfast mission.','25 min','uofg'],
         ['11:10','11:28','walk','University Centre - GO loading area','Walk out together and activate the GO group pass at least five minutes before boarding.','18 min','uofg'],
         ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal.','72 min','square'],
         ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom, water, optional coffee/small snack. No mall exploring.','20 min','square'],
@@ -425,7 +426,6 @@
       const bg=svgId==='overviewMap'?'./assets/map-regional.png':'./assets/map-downtown.png';
       let out=`<defs><filter id="s-${svgId}" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity=".18"/></filter></defs><image href="${bg}" x="0" y="0" width="${w}" height="${h}" preserveAspectRatio="none"/>`;
       out+=`<text x="8" y="${h-8}" fill="#52606d" font-size="9" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="3">© OpenStreetMap contributors</text><text x="${w-8}" y="${h-8}" text-anchor="end" fill="#52606d" font-size="9" font-weight="800" paint-order="stroke" stroke="#fff" stroke-width="3">static route overlay</text>`;
-      if(pts.length>1) out+=`<polyline points="${pts.map(x=>x.p.join(',')).join(' ')}" fill="none" stroke="#101c2c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".72"/>`;
       const seen=new Set();let markerNo=0;
       pts.forEach(x=>{
         if(seen.has(x.id))return;seen.add(x.id);markerNo++;
@@ -437,14 +437,37 @@
       });
       svg.innerHTML=out;
     }
+    const mapShort={uofg:'U of G',square:'Square One',indy:'Mini Indy',union:'Union',food:'Meal',richmond:'401 Richmond',well:'The Well',roundhouse:'CN / Roundhouse',harbour:'Harbourfront',brookfield:'Galleria',longos:"Longo's",cinema:'IMAX',kipling:'Kipling',guelph:'Guelph Central'};
+    function movementLegs(events){
+      let lastPlace=null;const out=[];
+      events.forEach(e=>{
+        const [start,end,type,title,desc,duration,id]=e;
+        if(!id||!places[id])return;
+        if(moveTypes.has(type)&&lastPlace&&lastPlace!==id)out.push({from:lastPlace,to:id,start,end,type,title,duration});
+        lastPlace=id;
+      });
+      return out;
+    }
+    function renderMapLegend(rootId,legs,title){
+      const root=document.getElementById(rootId);if(!root)return;
+      root.innerHTML=`<div class="geo-legend-title">${esc(title)}</div>`+legs.map(l=>{
+        const link=legAction(l.type,l.from,l.to,l.start),mode=labels[l.type]||'ROUTE';
+        return `<a class="geo-leg ${link.operator?'operator':''}" style="--leg:${colours[l.type]||colours.walk}" target="_blank" rel="noreferrer" href="${link.url}"><time>${l.start}<br><span>→ ${l.end}</span></time><div><b>${esc(mapShort[l.from]||places[l.from].name)} → ${esc(mapShort[l.to]||places[l.to].name)}</b><span>${esc(mode)} · ${esc(l.duration)}</span></div><em>${link.operator?(l.type==='ttc'?'TTC':'GO'):'Maps'} ↗</em></a>`;
+      }).join('');
+    }
     function renderStaticMaps(){
       const ids=routeStops(plans[currentPlan].events).map(x=>x.id);
-      renderGeoMap('overviewMap',ids.filter(id=>['uofg','square','indy','union','kipling','guelph'].includes(id)),{latMin:43.48,latMax:43.68,lonMin:-80.30,lonMax:-79.30},{
+      renderGeoMap('overviewMap',ids.filter(id=>['uofg','square','indy','union','kipling','guelph'].includes(id)),{latMin:43.25,latMax:43.85,lonMin:-80.30,lonMax:-79.30},{
         uofg:{text:'U of G',dx:0,dy:28},square:{text:'Square One + Mini Indy',dx:-12,dy:30},indy:null,union:{text:'Union',dx:-14,dy:28,anchor:'end'},kipling:{text:'Kipling',dx:0,dy:-17},guelph:{text:'Guelph Central',dx:14,dy:-18,anchor:'start'}
       },16);
-      renderGeoMap('downtownMap',ids.filter(id=>['union','food','richmond','well','roundhouse','harbour','brookfield','longos','cinema'].includes(id)),{latMin:43.634,latMax:43.659,lonMin:-79.405,lonMax:-79.372},{
+      renderGeoMap('downtownMap',ids.filter(id=>['union','food','richmond','well','roundhouse','harbour','brookfield','longos','cinema'].includes(id)),{latMin:43.631,latMax:43.663,lonMin:-79.407,lonMax:-79.369},{
         union:{text:'Union',dx:16,dy:28,anchor:'start'},food:{text:'Meal',dx:0,dy:-18},richmond:{text:'401',dx:-10,dy:-18},well:{text:'The Well',dx:-12,dy:30},roundhouse:{text:'CN',dx:-8,dy:-19},harbour:{text:'Water',dx:-10,dy:31},brookfield:{text:'Galleria',dx:0,dy:-19},longos:{text:'Snack',dx:12,dy:30,anchor:'start'},cinema:{text:'IMAX',dx:0,dy:-19}
       },14);
+      const legs=movementLegs(plans[currentPlan].events);
+      const regional=new Set(['uofg','square','indy','union','kipling','guelph']);
+      const downtown=new Set(['union','food','richmond','well','roundhouse','harbour','brookfield','longos','cinema']);
+      renderMapLegend('overviewLegend',legs.filter(l=>regional.has(l.from)&&regional.has(l.to)),'Planned regional legs — tap for the right planner');
+      renderMapLegend('downtownLegend',legs.filter(l=>downtown.has(l.from)&&downtown.has(l.to)).slice(0,7),'Downtown sequence — times are from this plan');
     }
     function renderPlan(key,updateUrl=true){
       currentPlan=key;const p=plans[key];
