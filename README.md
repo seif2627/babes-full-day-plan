@@ -1,4 +1,4 @@
-﻿# Babes Full Day Plan
+# Babes Full Day Plan
 
 Phone-first itinerary for Thursday, September 3, 2026.
 
@@ -30,8 +30,8 @@ This project deliberately preserves the visual language of the original ChatGPT 
 - Mini Indy: 3 Thursday-discount laps per person.
 - Plan A: hidden spots, waterfront sunset, PATH, late snack/chill, late GO 29 from Kipling.
 - Plan B: Odyssey IMAX, then the 10:34 p.m. train from Union.
-- The route map is a local schematic, not a network-tile map, so it cannot fail into a giant blank/world map.
-- Every important movement has a Google Maps fallback.
+- The route section has two locally generated geographic SVG maps plus a swipeable stop strip; it uses no network map tiles, so it cannot fail into a giant blank/world map.
+- Walking legs use Google Maps. Time-sensitive GO/TTC legs link to the operator planner with the planned departure visibly printed on the site, because Google Maps universal URLs cannot reliably encode a future transit departure time.
 
 ## Offline use
 
