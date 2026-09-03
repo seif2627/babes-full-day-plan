@@ -4,9 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#101c2c">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
   <title>Babes Full Day Plan</title>
   <meta name="description" content="Guelph to Mississauga and Toronto on Thursday, September 3, 2026 — two realistic versions, one 10:00 a.m. start, exact movement, food, hydration, maps and backups.">
-  <link rel="stylesheet" href="./leaflet.css">
   <style>
     :root{
       --ink:#101c2c;--paper:#f7f4ec;--card:#fffdf8;--muted:#65717e;--line:#d9d8d2;
@@ -23,14 +24,13 @@
     .risk-line{margin-top:12px;display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:14px;background:#fff4cf;border:1px solid #e3c25e}.risk-line .icon{flex:0 0 auto;margin-top:1px}.risk-line b{display:block}.risk-line span{color:#665512;font-size:.86rem}
     .timeline{position:relative;margin-top:22px}.timeline:before{content:"";position:absolute;top:23px;bottom:30px;left:131px;width:2px;background:#c9ccd0}.event{display:grid;grid-template-columns:105px 32px 1fr;gap:11px;position:relative;padding-bottom:12px}.event-time{text-align:right;padding-top:13px}.event-time strong{display:block;font-size:1.08rem;line-height:1;color:var(--ink)}.event-time span{font-size:.72rem;color:var(--muted);font-weight:750}.event-dot{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;color:white;position:relative;z-index:1;margin-top:9px;box-shadow:0 0 0 5px var(--paper)}.event-card{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--mode);border-radius:16px;padding:14px 14px 14px 12px;box-shadow:0 5px 18px rgba(16,28,44,.055)}.event-symbol{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:var(--mode);background:color-mix(in srgb,var(--mode) 12%,white)}.event-card h3{font-size:1.02rem;line-height:1.2;margin:2px 0 4px}.event-card p{margin:0;color:#52606d;font-size:.87rem}.event-card .move{display:flex;align-items:center;gap:6px;color:var(--ink);font-weight:850;margin-bottom:5px}.mode-pill{display:inline-flex;align-items:center;gap:5px;color:var(--mode);font-weight:950;text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;margin-bottom:5px}.duration{background:#f1f0eb;border-radius:9px;padding:5px 8px;font-size:.69rem;font-weight:850;color:#58636e;white-space:nowrap}.event[data-type="bus"]{--mode:var(--go)}.event[data-type="train"]{--mode:var(--train)}.event[data-type="ttc"]{--mode:var(--ttc)}.event[data-type="walk"]{--mode:var(--walk)}.event[data-type="food"]{--mode:var(--food)}.event[data-type="shop"]{--mode:var(--shop)}.event[data-type="movie"]{--mode:var(--movie)}.event[data-type="play"]{--mode:var(--play)}.event[data-type="buffer"]{--mode:var(--buffer)}.event-dot{background:var(--mode)}
     .movie-switch{margin:14px 0 0 159px;background:#fff3c9;border:1px solid #e5be42;border-radius:15px;padding:14px;display:flex;gap:12px;align-items:center;justify-content:space-between}.movie-switch b{display:block}.movie-switch span{display:block;color:#6a5816;font-size:.82rem}.action{appearance:none;border:0;border-radius:10px;background:var(--ink);color:white;padding:9px 12px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}.action.light{background:white;color:var(--ink);border:1px solid #cdd0d2}.action.green{background:var(--go)}
-    .map-shell{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(260px,.6fr);min-height:480px;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:var(--shadow)}#tripMap{min-height:480px;background:#dbe7e8}.map-side{padding:20px;display:flex;flex-direction:column}.map-side h3{margin:0 0 5px;font-size:1.15rem}.map-side>p{color:var(--muted);font-size:.82rem;margin:0 0 16px}.map-info{background:var(--paper);border-radius:16px;padding:15px;min-height:118px}.map-info .place-no{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:900}.map-info h4{margin:5px 0;font-size:1.05rem}.map-info p{font-size:.82rem;color:#53606c;margin:0}.map-focus{display:flex;gap:5px;margin-top:12px}.map-focus button{border:1px solid var(--line);background:white;border-radius:8px;padding:6px 8px;font-size:.7rem;font-weight:850;cursor:pointer}.map-focus button:hover{background:var(--lime)}.map-legend{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:18px}.legend{display:flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800}.legend i{width:22px;height:5px;border-radius:5px;background:var(--c)}.legend.walk i{height:0;border-top:3px dashed var(--walk);background:none}.map-note{font-size:.69rem;color:var(--muted);margin-top:13px}.leaflet-div-icon{background:none!important;border:0!important}.map-pin{width:31px;height:31px;border-radius:10px;background:var(--ink);color:white;border:3px solid white;display:grid;place-items:center;font:900 12px/1 system-ui;box-shadow:0 4px 12px rgba(0,0,0,.28)}
     .money-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:14px}.budget-card,.order-card,.status-card,.id-card,.backup-card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 7px 22px rgba(16,28,44,.05)}.budget-total{font-size:clamp(2.5rem,7vw,4rem);line-height:1;font-weight:1000;letter-spacing:-.06em;margin:7px 0}.budget-card>p,.order-card>p{color:var(--muted);font-size:.85rem}.mini-label{text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;color:var(--muted);font-weight:950}.lap-control{display:flex;justify-content:space-between;gap:15px;align-items:center;border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.seg{display:flex;background:#ebeae5;padding:3px;border-radius:10px}.seg button{border:0;background:transparent;padding:7px 10px;border-radius:8px;font-weight:900;cursor:pointer}.seg button.active{background:white;box-shadow:0 2px 8px #0001}.money-note{background:#e9f8ee;border-radius:13px;padding:11px 12px;margin-top:14px;font-size:.81rem}.order-card h3,.status-card h3,.id-card h3,.backup-card h3{margin:0 0 8px;font-size:1.15rem}.receipt{width:100%;border-collapse:collapse;margin-top:13px}.receipt td{padding:8px 0;border-bottom:1px dashed #d5d4cd;font-size:.84rem}.receipt td:last-child{text-align:right;font-weight:850}.receipt tr.total td{font-size:1rem;border-bottom:0;padding-top:12px}.receipt tr.no-tip td{color:var(--go);font-weight:900}.swap-note{font-size:.78rem!important;background:#f1efff;color:#51447a!important;border-radius:11px;padding:10px}
     .replacement-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.choice{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:17px;position:relative}.choice.recommended{border:2px solid var(--play)}.choice .tag{position:absolute;right:12px;top:12px;background:var(--play);color:white;border-radius:100px;padding:4px 8px;font-size:.63rem;text-transform:uppercase;letter-spacing:.08em;font-weight:950}.choice-icon{width:43px;height:43px;border-radius:13px;background:#f7e7f0;color:var(--play);display:grid;place-items:center;margin-bottom:11px}.choice h3{font-size:1rem;margin:0 0 5px}.choice p{color:var(--muted);font-size:.8rem;margin:0}.choice strong{display:block;margin-top:11px}.choice a{font-size:.76rem;color:var(--ink);font-weight:850}
     .status-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.status-row{display:grid;grid-template-columns:12px 1fr auto;gap:10px;align-items:start;padding:12px 0;border-bottom:1px solid var(--line)}.status-row:last-child{border:0}.status-dot{width:10px;height:10px;border-radius:50%;background:var(--go);margin-top:6px;box-shadow:0 0 0 4px #daf1e7}.status-dot.watch{background:#d39500;box-shadow:0 0 0 4px #fff1c7}.status-dot.stop{background:var(--coral);box-shadow:0 0 0 4px #ffe3df}.status-row b{display:block;font-size:.89rem}.status-row span{display:block;color:var(--muted);font-size:.78rem}.status-row a{font-size:.73rem;color:var(--ink);font-weight:850;white-space:nowrap}.stamp{display:inline-flex;align-items:center;gap:7px;background:#e6f4ea;color:#136240;border-radius:100px;padding:6px 10px;font-size:.74rem;font-weight:900;margin-bottom:12px}
     .id-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.id-card ul,.backup-card ul{padding-left:18px;margin:10px 0 0}.id-card li,.backup-card li{margin:9px 0;color:#4e5b68;font-size:.85rem}.id-answer{font-size:2rem;font-weight:1000;color:var(--go);letter-spacing:-.04em}.backup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.backup-card.danger{border-color:#e7988e;background:#fff6f4}.backup-card.warning{border-color:#e2c665;background:#fffbeb}.backup-card.good{border-color:#8dcaae;background:#f3fff7}
     .source-footer{background:var(--ink);color:white;padding:30px 0}.source-footer p{color:#c8d0d9;font-size:.8rem;margin:0}.source-links{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.source-links a{color:var(--ink);background:var(--lime);text-decoration:none;padding:6px 9px;border-radius:8px;font-size:.72rem;font-weight:900}.footer-line{display:flex;justify-content:space-between;gap:20px;align-items:end}.footer-title{font-size:1.4rem;font-weight:1000;letter-spacing:-.04em}.updated{font-size:.73rem;color:#aeb8c3;text-align:right}
-    @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-stamp{display:none}.weather-inner{grid-template-columns:1fr 1fr}.weather-title{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--line);padding-left:0}.weather-stat:nth-child(3){border-right:0}.recommend,.money-grid,.map-shell{grid-template-columns:1fr}.map-shell{min-height:auto}#tripMap{min-height:390px}.map-side{min-height:260px}.replacement-grid,.backup-grid{grid-template-columns:1fr}.status-grid,.id-grid{grid-template-columns:1fr}}
-    @media(max-width:650px){.wrap{width:min(100% - 22px,1120px)}.hero{padding-top:22px}.hero h1{font-size:3.45rem;max-width:355px}.hero:before{width:250px;height:250px;right:-110px}.hero-badge{font-size:.75rem;padding:7px 9px}.planner-inner{align-items:stretch}.share-button span{display:none}.share-button{padding-inline:11px}.plan-tab{font-size:.78rem}.plan-tab span{display:block;margin:1px 0 0}.snapshot{grid-template-columns:1fr 1fr}.snap:nth-child(2){border-right:0}.snap:nth-child(-n+2){border-bottom:1px solid var(--line)}.section-head{display:block}.section-head p{margin-top:8px}.timeline:before{left:17px}.event{grid-template-columns:34px 1fr;gap:9px}.event-time{grid-column:2;text-align:left;padding:8px 0 0}.event-time strong,.event-time span{display:inline}.event-time span:before{content:" → ";margin-left:3px}.event-dot{grid-column:1;grid-row:1/3;margin-top:9px}.event-card{grid-column:2;grid-template-columns:36px 1fr}.event-symbol{width:36px;height:36px}.duration{grid-column:2;margin-top:4px;justify-self:start}.movie-switch{margin-left:43px;align-items:flex-start;flex-direction:column}.map-shell{border-radius:17px}#tripMap{min-height:360px}.map-legend{grid-template-columns:1fr 1fr}.status-grid{gap:10px}.footer-line{display:block}.updated{text-align:left;margin-top:14px}}
+    @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-stamp{display:none}.weather-inner{grid-template-columns:1fr 1fr}.weather-title{grid-column:1/-1;border-right:0;border-bottom:1px solid var(--line);padding-left:0}.weather-stat:nth-child(3){border-right:0}.recommend,.money-grid{grid-template-columns:1fr}.replacement-grid,.backup-grid{grid-template-columns:1fr}.status-grid,.id-grid{grid-template-columns:1fr}}
+    @media(max-width:650px){.wrap{width:min(100% - 22px,1120px)}.hero{padding-top:22px}.hero h1{font-size:3.45rem;max-width:355px}.hero:before{width:250px;height:250px;right:-110px}.hero-badge{font-size:.75rem;padding:7px 9px}.planner-inner{align-items:stretch}.share-button span{display:none}.share-button{padding-inline:11px}.plan-tab{font-size:.78rem}.plan-tab span{display:block;margin:1px 0 0}.snapshot{grid-template-columns:1fr 1fr}.snap:nth-child(2){border-right:0}.snap:nth-child(-n+2){border-bottom:1px solid var(--line)}.section-head{display:block}.section-head p{margin-top:8px}.timeline:before{left:17px}.event{grid-template-columns:34px 1fr;gap:9px}.event-time{grid-column:2;text-align:left;padding:8px 0 0}.event-time strong,.event-time span{display:inline}.event-time span:before{content:" → ";margin-left:3px}.event-dot{grid-column:1;grid-row:1/3;margin-top:9px}.event-card{grid-column:2;grid-template-columns:36px 1fr}.event-symbol{width:36px;height:36px}.duration{grid-column:2;margin-top:4px;justify-self:start}.movie-switch{margin-left:43px;align-items:flex-start;flex-direction:column}.status-grid{gap:10px}.footer-line{display:block}.updated{text-align:left;margin-top:14px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
   
     .decision:after{content:"A"}
@@ -50,6 +50,28 @@
     .option-note{margin-top:10px;padding:10px 12px;border-radius:12px;background:#f1efff;color:#51447a;font-size:.8rem}
     @media(max-width:850px){.recommend,.food-visual{grid-template-columns:1fr}.food-photo{min-height:280px}.hydration{grid-template-columns:1fr 1fr}}
     @media(max-width:650px){.hydration{grid-template-columns:1fr}.food-photo{min-height:235px}.food-copy{padding:20px}.food-copy h3{font-size:1.6rem}}
+
+    /* Reliable compact route map: no external tiles, no world-scale blank map. */
+    .route-schematic{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px 18px;box-shadow:var(--shadow)}
+    .route-row{display:grid;grid-template-columns:34px minmax(0,1fr);gap:10px;position:relative}
+    .route-row:not(:last-child){padding-bottom:8px}.route-rail{display:flex;flex-direction:column;align-items:center;min-height:100%}
+    .route-no{width:32px;height:32px;border-radius:10px;display:grid;place-items:center;background:var(--ink);color:#fff;border:3px solid #fff;box-shadow:0 4px 11px rgba(16,28,44,.18);font-size:.73rem;font-weight:950;z-index:1}
+    .route-line{width:4px;flex:1;min-height:22px;margin-top:3px;border-radius:20px;background:var(--leg,var(--buffer));opacity:.8}.route-line.walk{width:0;border-left:3px dashed var(--walk);background:none;border-radius:0}
+    .route-place{background:#fff;border:1px solid var(--line);border-radius:14px;padding:9px 11px;min-width:0}.route-place small{display:block;color:var(--muted);font-size:.67rem;font-weight:900;letter-spacing:.04em}.route-place b{display:block;font-size:.93rem;margin:1px 0}.route-place span{display:block;color:#586571;font-size:.75rem}
+    .route-leg{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;align-items:center;margin:6px 0 7px 44px;padding:7px 9px;border-radius:11px;background:color-mix(in srgb,var(--leg,var(--buffer)) 9%,white);border-left:4px solid var(--leg,var(--buffer));font-size:.72rem;font-weight:850}.route-leg em{display:block;color:var(--leg,var(--buffer));font-style:normal;text-transform:uppercase;letter-spacing:.07em;font-size:.6rem;font-weight:950}.route-leg a{text-decoration:none;color:var(--ink);background:#fff;border:1px solid #cfd2d2;border-radius:8px;padding:7px 9px;font-size:.68rem;font-weight:900;white-space:nowrap}
+    .route-map-note{display:flex;gap:9px;align-items:flex-start;margin-top:10px;padding:11px 12px;border-radius:13px;background:#eef8ff;border:1px solid #c7e1ef;color:#53606c;font-size:.78rem}.route-map-note .icon{color:var(--walk);flex:0 0 auto}
+    @media(max-width:650px){.route-schematic{padding:11px;border-radius:17px}.route-leg{grid-template-columns:1fr;margin-left:42px}.route-leg a{width:100%;text-align:center;padding:9px}.route-place{padding:9px}.route-place b{font-size:.9rem}}
+    .plan-tab,.share-button,.action,.route-link,.source-links a{min-height:44px;align-items:center}.seg button{min-height:40px;min-width:44px}
+    /* The route map stays compact: swipe sideways instead of making a 3,000px-tall "map". */
+    .route-schematic{padding:14px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity;scrollbar-width:thin}
+    .route-strip{display:flex;align-items:stretch;gap:8px;width:max-content;min-width:100%;min-height:150px}
+    .route-chip{width:170px;min-height:142px;flex:0 0 170px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:15px;padding:11px;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(16,28,44,.045)}
+    .route-chip-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.route-chip .route-no{width:29px;height:29px;flex:0 0 29px;border-width:2px}.route-chip time{font-size:.67rem;font-weight:900;color:var(--muted)}
+    .route-chip b{font-size:.9rem;line-height:1.15;margin:8px 0 4px}.route-chip span{font-size:.72rem;line-height:1.25;color:#5a6672;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    .route-chip a{margin-top:auto;padding-top:8px;color:var(--ink);font-size:.68rem;font-weight:900;text-decoration:none}
+    .route-connector{width:86px;flex:0 0 86px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--leg,var(--buffer))}.route-connector i{width:100%;height:4px;background:var(--leg,var(--buffer));border-radius:10px;position:relative}.route-connector i:after{content:"";position:absolute;right:-1px;top:-4px;border-left:9px solid var(--leg,var(--buffer));border-top:6px solid transparent;border-bottom:6px solid transparent}.route-connector.walk i{height:0;border-top:3px dashed var(--walk);background:none}.route-connector small{font-size:.58rem;font-weight:950;letter-spacing:.06em;text-transform:uppercase;margin:6px 0}.route-connector a{font-size:.62rem;font-weight:850;color:var(--ink);text-decoration:none;background:#fff;border:1px solid var(--line);border-radius:7px;padding:5px 6px}
+    .route-swipe-hint{font-size:.69rem;color:var(--muted);margin:8px 2px 0}
+    @media(max-width:650px){.kicker{font-size:.66rem;letter-spacing:.09em}.route-chip{width:148px;flex-basis:148px;min-height:136px}.route-connector{width:66px;flex-basis:66px}.route-strip{min-height:144px}.route-schematic{padding:10px}.kicker{flex-wrap:wrap}}
 </style>
 </head>
 <body>
@@ -94,7 +116,7 @@
       <div class="weather-title"><svg class="icon"><use href="#i-cloud"/></svg> Today's weather</div>
       <div class="weather-stat"><b>28°C</b><span>Mississauga high</span></div>
       <div class="weather-stat"><b>Feels ~35°C</b><span>humidex / stay hydrated</span></div>
-      <div class="weather-stat"><b>30% showers</b><span>watch late afternoon/evening</span></div>
+      <div class="weather-stat"><b>30% showers</b><span>mainly late afternoon</span></div>
       <div class="weather-stat"><b>UV 7</b><span>sunscreen · sunset ~7:52</span></div>
     </div>
   </section>
@@ -134,50 +156,39 @@
     </section>
 
     <section id="map">
-      <div class="section-head"><div><div class="mini-label">Built into this page</div><h2>Your route map</h2></div><p>Tap any numbered stop for its time and purpose. Use “Open in Maps” only when you actually need turn-by-turn directions.</p></div>
-      <div class="map-shell">
-        <div><div id="tripMap" role="img" aria-label="Interactive map of selected trip"></div><div class="map-error" id="mapError"><b>Map tiles did not load.</b> The schedule still works — use the Maps buttons on the timeline cards.</div></div>
-        <aside class="map-side">
-          <h3 id="mapPlanName">Plan A route</h3>
-          <p>The coloured lines match the movement type. The line itself is schematic; the Google Maps buttons give street/transit geometry.</p>
-          <div class="map-info" id="mapInfo"><div class="place-no">Tap a marker</div><h4>All important stops are here</h4><p>Start at 1 and follow the numbers.</p></div>
-          <div class="map-focus"><button data-focus="all">Whole trip</button><button data-focus="square">Square One</button><button data-focus="downtown">Downtown</button></div>
-          <div class="map-legend">
-            <span class="legend" style="--c:var(--go)"><i></i>GO bus</span><span class="legend" style="--c:var(--train)"><i></i>GO train</span>
-            <span class="legend" style="--c:var(--ttc)"><i></i>TTC</span><span class="legend walk"><i></i>Walk</span>
-          </div>
-          <div class="map-note">Map uses OpenStreetMap tiles. Every stop also has a Google Maps fallback.</div>
-        </aside>
-      </div>
+      <div class="section-head"><div><div class="mini-label">Built into this page</div><h2>Your route map</h2></div><p>A compact route schematic that always loads. Every movement has a one-tap Google Maps button when you need actual street or transit directions.</p></div>
+      <div class="route-schematic" id="routeSchematic" aria-live="polite"></div>
+      <div class="route-map-note"><svg class="icon"><use href="#i-map"/></svg><div><b>No giant world map.</b> This view is intentionally schematic so it works instantly on a phone. Google Maps opens only for the leg you tap.</div></div>
     </section>
 
     <section id="money">
       <div class="section-head"><div><div class="mini-label">Eat once, eat properly</div><h2>Big halal meal + realistic budget</h2></div><p>Your friends can order differently. The safe budget is deliberately wider than one exact receipt, so nobody has to copy your plate.</p></div>
       <div class="food-visual">
         <div class="food-photo" role="img" aria-label="Food from Magical Taste of China"></div>
-        <div class="food-copy"><div class="mini-label">Magical Taste of China · 476 Dundas St W</div><h3>The main meal should carry the rest of the day.</h3><p>Start with three filling shared dishes instead of blindly ordering four. Give the table ten minutes, then add the spicy beef only if three hungry people still want more. Ask for water with the meal and get your drinks here too.</p></div>
+        <div class="food-copy"><div class="mini-label">Magical Taste of China · 476 Dundas St W</div><h3>The main meal should carry the rest of the day.</h3><p>Best-value starting order: the big-plate chicken with an extra noodle, three lamb kabobs and beef-onion dumplings. It is built to feed three without automatically over-ordering. Eat first, then add another dish only if the table still wants it. Ask for water and get drinks here too.</p></div>
       </div>
       <div class="money-grid">
         <div class="budget-card">
           <div class="mini-label">Safe group cap · selected plan</div>
-          <div class="budget-total" id="budgetTotal">~$285</div>
+          <div class="budget-total" id="budgetTotal">~$230–260</div>
           <p id="budgetText"></p>
           <div class="money-note"><b>GO:</b> the 3-person weekday group pass is $40 total and covers the GO buses/train in the plan. Buy it online, keep it on one charged phone, and activate it at least five minutes before the first GO ride. TTC is separate.</div>
           <div class="option-note"><b>No private payment note is stored on this public page.</b> Whoever pays can settle up later; the site only shows the group total and per-person estimate.</div>
         </div>
         <div class="order-card">
-          <h3>Start with this for all three</h3>
+          <h3>Best-value first order for three</h3>
           <table class="receipt">
-            <tr><td>Xinjiang bone-in chicken</td><td>$31.99</td></tr>
-            <tr><td>Thin hand-pulled noodles</td><td>$21.49</td></tr>
-            <tr><td>Lamb hand pilaf</td><td>$19.99</td></tr>
-            <tr><td>3 soft drinks · estimate</td><td>$10.50</td></tr>
-            <tr><td>Estimated HST</td><td>$10.92</td></tr>
-            <tr class="total"><td><b>Start-order estimate</b></td><td><b>~$94.89 group</b></td></tr>
-            <tr><td>If still hungry: spicy beef + tax</td><td>~+$30.50</td></tr>
-            <tr class="no-tip"><td>Tip budgeted</td><td>$0.00</td></tr>
+            <tr><td>Xinjiang big-plate chicken</td><td>$29.99</td></tr>
+            <tr><td>Extra thin noodle for the chicken</td><td>$4.99</td></tr>
+            <tr><td>3 lamb kabobs · one each</td><td>$11.97</td></tr>
+            <tr><td>Beef + onion dumplings</td><td>$15.99</td></tr>
+            <tr><td>Subtotal</td><td>$62.94</td></tr>
+            <tr><td>Ontario HST · 13%</td><td>$8.18</td></tr>
+            <tr class="total"><td><b>Food total</b></td><td><b>$71.12 group</b></td></tr>
+            <tr><td>3 bottled waters / soft drinks</td><td>+$6.75 tax-in</td></tr>
+            <tr class="no-tip"><td>Tip included in estimate</td><td>$0.00 · optional</td></tr>
           </table>
-          <p class="swap-note">Online menu prices are a benchmark and dine-in pricing can differ. Safe restaurant cap: <b>$125–140 group</b> including drinks and a little price variance. Check the receipt for any automatic service charge before paying.</p>
+          <p class="swap-note">Current online-menu benchmark: <b>~$77.87 group with three $1.99 drinks/waters after HST</b>, or about $25.96 each. Dine-in prices can differ, so keep <b>$90–110 group</b> available if you add another dish. Tipping is optional; check the receipt for any automatic service charge.</p>
         </div>
       </div>
     </section>
@@ -187,7 +198,7 @@
       <div class="hydration">
         <article class="water-card"><b>Square One · 12:40</b><span>Washroom, water/refill, optional coffee. Twenty minutes total.</span></article>
         <article class="water-card"><b>Mini Indy · ~1:40</b><span>Washroom on site. Drink before the walk back.</span></article>
-        <article class="water-card"><b>Restaurant · 3:25</b><span>Full drink + ask for water with the meal.</span></article>
+        <article class="water-card"><b>Restaurant · 4:05</b><span>Full drink + ask for water with the meal.</span></article>
         <article class="water-card"><b>The Well · evening</b><span>Official water-bottle refill point, washrooms and charging on Plan A.</span></article>
       </div>
     </section>
@@ -196,7 +207,7 @@
       <div class="section-head"><div><div class="mini-label">Toronto stops that earned a place</div><h2>Not another mall + arcade day</h2></div><p>These are there because they fit what you asked for: indoors/shade, architecture, unusual spaces, photos or a useful reset.</p></div>
       <div class="replacement-grid">
         <article class="choice recommended"><span class="tag">first</span><div class="choice-icon"><svg class="icon lg"><use href="#i-map"/></svg></div><h3>401 Richmond + Museum of Toronto</h3><p>A restored heritage arts building with brick, old wood, galleries and the free “The T.O. You Don't Know” exhibition downstairs. Thursday museum hours are noon–6 p.m.; washrooms available.</p><strong>$0</strong><a href="https://401richmond.com/visit/" target="_blank" rel="noreferrer">Official visit info ↗</a></article>
-        <article class="choice"><div class="choice-icon"><svg class="icon lg"><use href="#i-walk"/></svg></div><h3>Allen Lambert Galleria + PATH</h3><p>The closest match to your “walk into a building and it takes us somewhere else” idea: huge glass-and-steel interior at Brookfield Place connected to Toronto's underground PATH.</p><strong>$0</strong><a href="https://www.toronto.ca/explore-enjoy/visitor-toronto/path-torontos-downtown-pedestrian-walkway/" target="_blank" rel="noreferrer">PATH info ↗</a><img class="spot-photo" src="https://digitalasset.oxfordproperties.com/MediaGroupings/120/161BaySt_081721_15137.jpg" alt="Allen Lambert Galleria at Brookfield Place" loading="lazy"></article>
+        <article class="choice"><div class="choice-icon"><svg class="icon lg"><use href="#i-walk"/></svg></div><h3>Allen Lambert Galleria + PATH</h3><p>The closest match to your “walk into a building and it takes us somewhere else” idea: huge glass-and-steel interior at Brookfield Place connected to Toronto's underground PATH.</p><strong>$0</strong><a href="https://www.toronto.ca/explore-enjoy/visitor-toronto/path-torontos-downtown-pedestrian-walkway/" target="_blank" rel="noreferrer">PATH info ↗</a><img class="spot-photo" src="./assets/allen-lambert.jpg" alt="Allen Lambert Galleria at Brookfield Place" loading="lazy"></article>
         <article class="choice"><div class="choice-icon"><svg class="icon lg"><use href="#i-check"/></svg></div><h3>The Well → CN → Harbourfront</h3><p>The Well gives you covered architecture, refill/washrooms/charging. Then do one compact photo walk south and hit the waterfront close to sunset instead of roasting there at 4 p.m.</p><strong>Mostly $0</strong><a href="https://thewelltoronto.com/directory/" target="_blank" rel="noreferrer">The Well amenities ↗</a></article>
       </div>
     </section>
@@ -217,9 +228,9 @@
         <article class="status-card">
           <div class="stamp"><svg class="icon sm"><use href="#i-check"/></svg> Transport + weather</div>
           <h3>Things to re-check live</h3>
-          <div class="status-row"><i class="status-dot watch"></i><div><b>GO before every fixed departure</b><span>The page uses the published weekday trips for Sept. 3. GO itself says schedules can change; live board wins.</span></div><a href="https://www.gotransit.com/en/see-schedules" target="_blank">GO ↗</a></div>
+          <div class="status-row"><i class="status-dot watch"></i><div><b>GO before every fixed departure</b><span>These are the active pre-Sept.-5 weekday schedules for Thursday Sept. 3. Live boards still win if service changes.</span></div><a href="https://www.gotransit.com/en/see-schedules" target="_blank">GO ↗</a></div>
           <div class="status-row"><i class="status-dot watch"></i><div><b>Mini Indy track condition</b><span>Call if the pavement is wet or showers develop. Do not waste an hour waiting on a closed track.</span></div><a href="tel:+14374884667">Call ↗</a></div>
-          <div class="status-row"><i class="status-dot watch"></i><div><b>Weather</b><span>Hot/humid with UV 7 and a late-day shower risk. Plan A deliberately puts more indoor/shaded stops in the evening.</span></div><a href="https://weather.gc.ca/en/location/index.html?coords=43.643%2C-79.378" target="_blank">Forecast ↗</a></div>
+          <div class="status-row"><i class="status-dot watch"></i><div><b>Weather</b><span>Guelph high 26 / humidex 33; Mississauga 28 / humidex 35; Toronto 27 / humidex 34. About 30% late-afternoon shower risk; Mini Indy is earlier when risk is lower.</span></div><a href="https://weather.gc.ca/en/location/index.html?coords=43.643%2C-79.378" target="_blank">Forecast ↗</a></div>
           <div class="status-row"><i class="status-dot watch"></i><div><b>Odyssey seats/showtime</b><span>Plan B is only valid if the 6:40-ish IMAX listing remains available. Check Cineplex before committing after dinner.</span></div><a href="https://www.cineplex.com/theatre/scotiabank-theatre-toronto" target="_blank">Cineplex ↗</a></div>
           <div class="risk-line"><svg class="icon"><use href="#i-alert"/></svg><div><b>Nothing here requires blind faith.</b><span>Every fixed transport/activity has a live or official link on this page. Use those if reality disagrees with the schedule.</span></div></div>
         </article>
@@ -237,7 +248,7 @@
     <section id="backup">
       <div class="section-head"><div><div class="mini-label">If reality changes</div><h2>Three backups — that's enough</h2></div><p>No twenty-item contingency manual.</p></div>
       <div class="backup-grid">
-        <article class="backup-card danger"><h3>Miss the 11:28 GO bus?</h3><p>Stop pretending the displayed times still apply. Open GO's live planner, take the next Square One option, and compress/remove 401 Richmond first because the museum closes at 6.</p></article>
+        <article class="backup-card danger"><h3>Miss the 11:28 GO bus?</h3><p>Stop using the fixed times on this page. Open GO's live planner, take the next sensible Square One option, and remove 401 Richmond first if the delay threatens its 6 p.m. museum close.</p></article>
         <article class="backup-card warning"><h3>Karts closed?</h3><p><b>If dry:</b> use Kariya Park only as a short 25–30 minute Japanese-garden/photo backup near Square One. <b>If wet/raining:</b> stay indoors, use the washroom/coffee stop, and take the earliest sensible GO bus downtown. Do not replace wet karts with a wet “park tour.”</p><a class="route-link" href="https://www.google.com/maps/dir/?api=1&origin=Square+One+GO+Bus+Terminal&destination=Kariya+Park+Mississauga&travelmode=walking" target="_blank">Kariya directions ↗</a></article>
         <article class="backup-card good"><h3>Two return anchors</h3><p><b>Plan B:</b> Union 10:34 p.m. → Guelph Central 12:05 a.m. <b>Plan A:</b> Kipling 11:55 p.m. → Guelph Central about 1:35 a.m. If 1:35 is too late once you're tired, bail to the 10:34 train.</p></article>
       </div>
@@ -251,7 +262,6 @@
     </div>
   </footer>
 
-  <script src="./leaflet.js"></script>
   <script>
     const icons={bus:'bus',train:'train',ttc:'subway',walk:'walk',food:'food',shop:'shop',movie:'movie',play:'play',buffer:'clock'};
     const labels={bus:'GO BUS',train:'GO TRAIN',ttc:'TTC / SUBWAY',walk:'WALK',food:'FOOD / DRINK',shop:'INDOOR / EXPLORE',movie:'IMAX MOVIE',play:'ACTIVITY',buffer:'CHILL / BUFFER'};
@@ -274,58 +284,58 @@
     };
 
     const plans={
-      A:{name:'Plan A · Hidden spots + late chill',summary:'Same 10:00 start. No Rec Room, no Eaton speed-run, no Grange Park mission. Finish with unusual architecture, sunset, snacks and actual hanging out, then use the late Route 29 from Kipling.',snap:[['Meet','10:00 a.m.','no breakfast mission'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['Late snack','9:30 p.m.',"Longo's + washroom"],['Guelph Central','~1:35 a.m.','late Route 29']],risk:'Plan A is the better day if 1:35 a.m. in Guelph is acceptable. The strict parts are 11:28 from U of G, 2:05 from Square One and 11:55 from Kipling. Everything between can breathe.',budget:'~$285',budgetText:'Comfortable group cap for three: $40 GO pass + $27 karts + roughly $20 TTC + $125–140 restaurant + about $50–60 for coffee, water and late snacks. About $95 each if the group lands near the cap.',events:[
-        ['10:00','11:10','buffer','Meet in Guelph · optional tiny bite only','Wait for everyone, fill water and charge phones. If somebody woke up starving, grab one coffee/light snack — do not turn this into breakfast. Buy the $40 GO group pass online if you have not already.','70 min','uofg'],
-        ['11:10','11:28','walk','University Centre → GO loading area','Walk out together. Be at the Route 29 stop by about 11:18 and activate the group pass by 11:23.','18 min','uofg','square'],
-        ['11:28','12:40','bus','GO Route 29 · University of Guelph → Square One','One bus to Square One GO Bus Terminal. This is the published weekday trip the original plan was built around.','72 min','square','square'],
-        ['12:40','1:00','shop','Square One · 20-minute pit stop','Washroom first. Refill/buy water. Coffee or a small snack only if you actually want one. You have been here before — do not start browsing the mall.','20 min','square'],
-        ['1:00','1:10','walk','Square One → Mississauga Mini Indy','Walk across toward 99 Rathburn Rd W.','10 min','indy','indy'],
-        ['1:10','1:45','play','Mini Indy · 3 laps each','Thursday price is $3/lap including HST, so three laps are $9 each / $27 for all three. The time block includes check-in, helmets and queue — not 35 minutes of driving.','35 min','indy'],
-        ['1:45','1:55','walk','Mini Indy → Square One GO Terminal','Water first, washroom if needed, then walk straight back.','10 min','square','square'],
-        ['1:55','2:05','buffer','Find the Union bus','Use the live board and line up. If reality disagrees with this page, GO live information wins.','10 min','square'],
-        ['2:05','3:00','bus','GO Route 21C · Square One → Union','Direct scheduled bus to Union Station Bus Terminal.','55 min','union','union'],
-        ['3:00','3:25','ttc','Union → St Patrick → Dundas restaurant','Ride Line 1 north to St Patrick and walk west to 476 Dundas St W. Use the same payment method for TTC transfers.','25 min','food','food'],
-        ['3:25','4:40','food','Huge halal meal · Magical Taste of China','This is the real meal. Start with chicken + hand-pulled noodles + lamb pilaf, three drinks and water. Add spicy beef only if the table still wants food. No tip is budgeted; check for an automatic service charge.','75 min','food'],
-        ['4:40','4:55','walk','Restaurant → 401 Richmond','Short downtown walk to the restored arts building.','15 min','richmond','richmond'],
-        ['4:55','5:45','shop','401 Richmond + “The T.O. You Don’t Know”','Go downstairs to the free Museum of Toronto exhibition first because it closes at 6. Indoor shade, unusual Toronto stories, heritage brick/wood and washrooms.','50 min','richmond'],
-        ['5:45','6:00','walk','401 Richmond → The Well','Walk west/south to The Well.','15 min','well','well'],
-        ['6:00','6:45','shop','The Well · architecture + reset','This is not a shopping mission. See the covered architecture, use the official water-bottle refill point, washroom and charging. Grab a portable drink only if you want one.','45 min','well'],
-        ['6:45','7:00','walk','The Well → CN / Roundhouse zone','One clean walk south/east.','15 min','roundhouse','roundhouse'],
-        ['7:00','7:20','shop','CN Tower / Roundhouse photo pass','Big-building photos and the CN view. Keep moving toward the water instead of turning this into another attraction.','20 min','roundhouse'],
-        ['7:20','8:10','buffer','Harbourfront · sunset + actual chill','Get to the lake near sunset (~7:52), sit down, talk, take photos and recover. If everyone is tired, make this shorter.','50 min','harbour'],
-        ['8:10','8:25','walk','Harbourfront → Brookfield Place','Walk north toward Front/Bay.','15 min','brookfield','brookfield'],
-        ['8:25','9:15','shop','Allen Lambert Galleria + short PATH “portal”','Huge glass-and-steel indoor galleria, then enter a short section of PATH. Do not try to complete the 30+ km network; just use it as the weird indoor-city experience you wanted.','50 min','brookfield'],
-        ['9:15','9:30','walk',"Brookfield Place → Longo's Maple Leaf Square",'Short walk back toward the Union/CN zone.','15 min','longos','longos'],
-        ['9:30','10:00','food',"Longo's · snacks + drinks + washroom",'Open until 10 p.m. on the official store page. Buy the return-trip snack/drinks here instead of hunting later.','30 min','longos'],
-        ['10:00','10:35','buffer','Front Street / Union area · do nothing important','Sit, talk, finish snacks and take night photos. This empty block is intentional.','35 min','union'],
-        ['10:35','11:35','ttc','Downtown → Kipling','Start moving. TTC to Kipling with enough buffer that a normal delay does not destroy the late bus connection.','60 min','kipling','kipling'],
-        ['11:35','11:55','buffer','Kipling · find Route 29','Washroom only if time allows. Be lined up before the bus.','20 min','kipling'],
-        ['11:55','1:35','bus','GO Route 29 · Kipling → Guelph Central','Late return. Current published timetable used for this plan reaches Guelph around 1:35 a.m. If that is too late once you are tired, use Plan B’s 10:34 p.m. Union train instead.','~100 min','guelph','guelph']
+      A:{name:'Plan A - Hidden spots + late chill',summary:'Same 10:00 start. Mini Indy and the big meal are fixed priorities; the evening is unusual architecture, sunset, snacks and actual hanging out instead of mall/arcade filler.',snap:[['Meet','10:00 a.m.','University Centre - no breakfast mission'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['Toronto','3:40 p.m.','GO 21E at 2:38'],['Guelph Central','1:35 a.m.','late Route 29']],risk:'Best if a 1:35 a.m. Guelph arrival is acceptable. Protect the 11:28 GO 29, 2:38 GO 21E and 11:55 Kipling GO 29. Everything between those anchors can breathe.',budget:'~$230-260',budgetText:'Comfortable group cap for three: $40 GO group pass + $27 karts + roughly $20 TTC + about $78 for the value meal/drinks + a generous coffee/water/late-snack buffer. Roughly $77-87 each; keep extra room only if you add food or shopping.',events:[
+        ['10:00','11:10','buffer','Meet at University Centre - optional tiny bite only','Wait for everyone, fill water and charge phones. If somebody is actually hungry, grab one coffee or light item. Do not schedule breakfast.','70 min','uofg'],
+        ['11:10','11:28','walk','University Centre - GO loading area','Walk out together. Be at the Route 29 stop early and activate the group pass at least five minutes before boarding.','18 min','uofg'],
+        ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal. This is the same trip that leaves Guelph Central at 11:15.','72 min','square'],
+        ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom first. Refill or buy water. Coffee or a tiny snack only if you want it. You have been here before - no mall wandering.','20 min','square'],
+        ['1:00','1:10','walk','Square One - Mississauga Mini Indy','Walk straight to 99 Rathburn Rd W, across from the Square One area.','10 min','indy'],
+        ['1:10','1:50','play','Mini Indy - 3 laps each','Thursday deal is $3 per lap including HST, so three laps are $9 each / $27 for all three. The block includes check-in, helmets and queue time - not forty minutes of driving.','40 min','indy'],
+        ['1:50','2:00','walk','Mini Indy - Square One GO Terminal','Drink water, use the kart washroom if needed, then walk straight back.','10 min','square'],
+        ['2:00','2:38','buffer','Cool down + platform buffer','Use this flex time for any kart queue overrun, water and finding GO 21E. The goal is simply to be lined up before 2:38.','38 min','square'],
+        ['2:38','3:40','bus','GO Route 21E - Square One - Union','Direct scheduled weekday bus to Union Station Bus Terminal. If the live board changes, GO live information wins.','62 min','union'],
+        ['3:40','4:05','ttc','Union - St Patrick - Dundas restaurant','Take Line 1 north to St Patrick, then walk west to 476 Dundas St W. TTC fare is separate from the GO group pass.','25 min','food'],
+        ['4:05','5:20','food','Huge halal meal - Magical Taste of China','This is the real meal. Order a filling shared table, get drinks and ask for water. Friends can swap dishes; the budget has room. Do not leave hungry.','75 min','food'],
+        ['5:20','5:30','walk','Restaurant - 401 Richmond','Walk south/east to 401 Richmond St W. Museum of Toronto closes at 6, so this is the one evening stop with a real closing-time clock.','10 min','richmond'],
+        ['5:30','5:55','shop','401 Richmond + The T.O. You Do Not Know','Go downstairs to the free Museum of Toronto exhibition first. It covers 50+ overlooked Toronto stories inside a restored heritage arts building. Washrooms are available.','25 min','richmond'],
+        ['5:55','6:05','walk','401 Richmond - The Well','Short walk to The Well.','10 min','well'],
+        ['6:05','6:40','shop','The Well - architecture + reset','Not a shopping mission. See the covered/open-air architecture, refill water, use the washroom, charge if needed and grab a portable drink only if you want one.','35 min','well'],
+        ['6:40','7:00','walk','The Well - CN / Roundhouse zone','One clean walk south/east.','20 min','roundhouse'],
+        ['7:00','7:20','shop','CN Tower / Roundhouse photo pass','Get the big-building/CN shots, then keep moving toward the water. No ticketed attraction is required here.','20 min','roundhouse'],
+        ['7:20','8:10','buffer','Harbourfront - sunset + actual chill','Get to the lake around sunset, sit down, talk, take photos and recover. Shorten it if legs are cooked.','50 min','harbour'],
+        ['8:10','8:25','walk','Harbourfront - Brookfield Place','Walk north toward Front/Bay.','15 min','brookfield'],
+        ['8:25','9:10','shop','Allen Lambert Galleria + short PATH portal','The huge glass-and-steel galleria is the best match for walking into a building and ending up somewhere else. Do a short PATH section, not the whole underground network.','45 min','brookfield'],
+        ['9:10','9:20','walk',"Brookfield Place - Longo's Maple Leaf Square",'Short walk back toward the Union/CN area.','10 min','longos'],
+        ['9:20','9:50','food',"Longo's - snacks + drinks + washroom",'Buy the return-trip snack/drinks here while it is open. Use the washroom and top up water before the late ride.','30 min','longos'],
+        ['9:50','10:30','buffer','Front Street / Union area - do nothing important','Sit, talk, finish snacks and take night photos. This empty block is intentional so the day stops feeling like a checklist.','40 min','union'],
+        ['10:30','11:35','ttc','Downtown - Kipling','Start moving toward Kipling with a deliberately large buffer. Do not try to squeeze in another activity here.','65 min','kipling'],
+        ['11:35','11:55','buffer','Kipling - find GO Route 29','Use the live board and line up before the late bus.','20 min','kipling'],
+        ['11:55','1:35','bus','GO Route 29 - Kipling - Guelph Central','Late direct return on the active Sept. 3 weekday schedule. If everyone is done much earlier, the 10:34 p.m. Union train from Plan B is the clean bailout.','100 min','guelph']
       ]},
-      B:{name:'Plan B · The Odyssey IMAX',summary:'Same entire start and meal. Keep one hidden Toronto stop, then do the IMAX and take the clean 10:34 p.m. train home instead of forcing a second night itinerary after a three-hour movie.',snap:[['Meet','10:00 a.m.','same start'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['IMAX','~6:40 p.m.','re-check seats/showtime'],['Guelph Central','12:05 a.m.','direct train']],risk:'Plan B only works if the current Odyssey IMAX showtime remains around 6:40. Check Cineplex before leaving the restaurant. After the movie, the train matters more than snacks: be inside Union early enough for 10:34.',budget:'~$350',budgetText:'Comfortable group cap for three: same $40 GO pass + $27 karts + restaurant + TTC + a placeholder around $75–90 for three IMAX tickets + snack buffer. About $115–120 each is a safer cap until Cineplex checkout confirms the ticket total.',events:[
-        ['10:00','11:10','buffer','Meet in Guelph · optional tiny bite only','Wait for everyone, fill water and charge phones. If somebody is hungry, grab one light item — no University Centre breakfast mission.','70 min','uofg'],
-        ['11:10','11:28','walk','University Centre → GO loading area','Walk out together, activate the group pass at least five minutes before boarding.','18 min','uofg','square'],
-        ['11:28','12:40','bus','GO Route 29 · University of Guelph → Square One','One bus to Square One GO Bus Terminal.','72 min','square','square'],
-        ['12:40','1:00','shop','Square One · 20-minute pit stop','Washroom, water, optional coffee/small snack. No mall exploring.','20 min','square'],
-        ['1:00','1:10','walk','Square One → Mississauga Mini Indy','Walk to 99 Rathburn Rd W.','10 min','indy','indy'],
-        ['1:10','1:45','play','Mini Indy · 3 laps each','Three Thursday laps = $9 each, HST included.','35 min','indy'],
-        ['1:45','1:55','walk','Mini Indy → Square One GO Terminal','Water and walk back.','10 min','square','square'],
-        ['1:55','2:05','buffer','Find the Union bus','Use the live board and line up.','10 min','square'],
-        ['2:05','3:00','bus','GO Route 21C · Square One → Union','Direct scheduled bus to Union Station Bus Terminal.','55 min','union','union'],
-        ['3:00','3:25','ttc','Union → St Patrick → Dundas restaurant','Line 1 north to St Patrick, then walk west.','25 min','food','food'],
-        ['3:25','4:40','food','Huge halal meal · Magical Taste of China','Same filling order strategy as Plan A. Drink water here; do not leave hungry.','75 min','food'],
-        ['4:40','4:55','walk','Restaurant → 401 Richmond','Short walk to the museum/arts building.','15 min','richmond','richmond'],
-        ['4:55','5:40','shop','401 Richmond + Museum of Toronto','Use the free hidden-gem stop while it is still open. Leave with plenty of movie buffer.','45 min','richmond'],
-        ['5:40','5:55','walk','401 Richmond → Scotiabank Theatre','The theatre is nearby on Richmond.','15 min','cinema','cinema'],
-        ['5:55','6:35','buffer','Tickets + washroom + water','Confirm the exact Odyssey IMAX listing, scan tickets, use washroom and get seated.','40 min','cinema'],
-        ['6:40','~9:50','movie','The Odyssey · IMAX','Official film runtime is 2h 52m; theatre trailers/pre-show can push the real exit later than the bare runtime. Leave without adding another attraction.','~3 hr 10','cinema'],
-        ['~9:50','10:15','walk','Scotiabank Theatre → Union Station','Walk directly to Union. No snack detour if the film runs late.','~25 min','union','union'],
+      B:{name:'Plan B - The Odyssey IMAX',summary:'Same 10:00 start, karts and big meal. Keep one hidden Toronto stop, then do the 6:40-ish Odyssey IMAX and take the clean 10:34 p.m. train home.',snap:[['Meet','10:00 a.m.','same start'],['First GO bus','11:28 a.m.','Route 29 from U of G'],['IMAX','6:40 p.m.','re-check before buying'],['Guelph Central','12:05 a.m.','10:34 direct train']],risk:'Movie plan is tighter after 6:40. Confirm the exact Cineplex showtime/seats before committing. After the film, Union matters more than snacks: walk directly there for the 10:34 train.',budget:'~$275-310',budgetText:'Comfortable group cap for three: the same GO pass, $27 karts, value meal, TTC and a placeholder for three IMAX tickets plus snacks. Roughly $92-103 each, but Cineplex checkout is the final movie price.',events:[
+        ['10:00','11:10','buffer','Meet at University Centre - optional tiny bite only','Wait for everyone, fill water and charge phones. Tiny snack only if somebody is hungry - no breakfast mission.','70 min','uofg'],
+        ['11:10','11:28','walk','University Centre - GO loading area','Walk out together and activate the GO group pass at least five minutes before boarding.','18 min','uofg'],
+        ['11:28','12:40','bus','GO Route 29 - University of Guelph - Square One','One bus to Square One GO Bus Terminal.','72 min','square'],
+        ['12:40','1:00','shop','Square One - 20-minute pit stop','Washroom, water, optional coffee/small snack. No mall exploring.','20 min','square'],
+        ['1:00','1:10','walk','Square One - Mississauga Mini Indy','Walk to 99 Rathburn Rd W.','10 min','indy'],
+        ['1:10','1:50','play','Mini Indy - 3 laps each','Three Thursday laps = $9 each, HST included.','40 min','indy'],
+        ['1:50','2:00','walk','Mini Indy - Square One GO Terminal','Water and walk back.','10 min','square'],
+        ['2:00','2:38','buffer','Cool down + platform buffer','Queue overrun, water and line-up time for GO 21E.','38 min','square'],
+        ['2:38','3:40','bus','GO Route 21E - Square One - Union','Direct scheduled weekday bus to Union.','62 min','union'],
+        ['3:40','4:05','ttc','Union - St Patrick - Dundas restaurant','Line 1 north to St Patrick, then walk west.','25 min','food'],
+        ['4:05','5:20','food','Huge halal meal - Magical Taste of China','Same filling shared-meal strategy as Plan A. Drink properly here; do not leave hungry.','75 min','food'],
+        ['5:20','5:30','walk','Restaurant - 401 Richmond','Short walk to the museum/arts building.','10 min','richmond'],
+        ['5:30','5:55','shop','401 Richmond + Museum of Toronto','Use the free hidden-gem stop while it is still open, then leave with movie buffer.','25 min','richmond'],
+        ['5:55','6:05','walk','401 Richmond - Scotiabank Theatre','The theatre is nearby on Richmond.','10 min','cinema'],
+        ['6:05','6:35','buffer','Tickets + washroom + water','Confirm the exact Odyssey IMAX listing, scan tickets, use the washroom and get seated.','30 min','cinema'],
+        ['6:40','~9:50','movie','The Odyssey - IMAX','Film runtime is about 2h 52m; trailers/pre-show can push the real exit later than the bare runtime. Leave without adding another attraction.','~3 hr 10','cinema'],
+        ['~9:50','10:15','walk','Scotiabank Theatre - Union Station','Walk directly to Union. If the movie runs late, no snack detour.','~25 min','union'],
         ['10:15','10:34','buffer','Find the Kitchener-line platform','Use the departure board and be on the platform before departure.','19 min','union'],
-        ['10:34','12:05','train','Kitchener line · Union → Guelph Central','Clean early return. Your GO weekday group pass covers this trip.','91 min','guelph','guelph']
+        ['10:34','12:05','train','Kitchener line - Union - Guelph Central','Clean direct return. The GO weekday group pass covers it.','91 min','guelph']
       ]}
     };
 
-    let currentPlan='A',map,mapLayers=[];
+    let currentPlan='A';
     const svgIcon=n=>`<svg class="icon"><use href="#i-${n}"/></svg>`;
     const searchUrl=id=>`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(places[id].query)}`;
     const dirUrl=(a,b,mode)=>{
@@ -333,11 +343,45 @@
       const travel=mode==='walk'?'walking':(mode==='bus'||mode==='train'||mode==='ttc')?'transit':'driving';
       return `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(dest)}&travelmode=${travel}`;
     };
-    function mapAction(e){
-      const [start,end,type,title,desc,duration,id,to]=e;
-      if(to && id) return `<div class="route-actions"><a class="route-link" target="_blank" rel="noreferrer" href="${dirUrl(id,to,type)}">${svgIcon('map')} Open route in Maps</a></div>`;
-      if(id) return `<div class="route-actions"><a class="route-link" target="_blank" rel="noreferrer" href="${searchUrl(id)}">${svgIcon('map')} Open stop in Maps</a></div>`;
-      return '';
+    const moveTypes=new Set(['bus','train','ttc','walk']);
+    function renderTimeline(events){
+      let lastPlace=null;
+      return events.map(e=>{
+        const [start,end,type,title,desc,duration,id]=e;
+        let action='';
+        if(id){
+          if(moveTypes.has(type)&&lastPlace&&lastPlace!==id){
+            action=`<div class="route-actions"><a class="route-link" target="_blank" rel="noreferrer" href="${dirUrl(lastPlace,id,type)}">${svgIcon('map')} Open this leg in Maps</a></div>`;
+          }else{
+            action=`<div class="route-actions"><a class="route-link" target="_blank" rel="noreferrer" href="${searchUrl(id)}">${svgIcon('map')} Open stop in Maps</a></div>`;
+          }
+          lastPlace=id;
+        }
+        return `<article class="event" data-type="${type}"><div class="event-time"><strong>${start}</strong><span>${end}</span></div><div class="event-dot">${svgIcon(icons[type])}</div><div class="event-card"><div class="event-symbol">${svgIcon(icons[type])}</div><div><div class="mode-pill">${labels[type]}</div><h3>${title}</h3><p>${desc}</p>${action}</div><span class="duration">${duration}</span></div></article>`;
+      }).join('');
+    }
+    function routeStops(events){
+      const stops=[];
+      events.forEach(e=>{
+        const id=e[6]; if(!id||!places[id])return;
+        const last=stops.at(-1);
+        if(last&&last.id===id){last.end=e[1]||last.end;last.title=e[3]||last.title;return}
+        stops.push({id,start:e[0],end:e[1],title:e[3],arrival:e[2]});
+      });
+      return stops;
+    }
+    function renderRouteSchematic(){
+      const root=document.getElementById('routeSchematic');if(!root)return;
+      const stops=routeStops(plans[currentPlan].events);let html='<div class="route-strip">';
+      stops.forEach((s,i)=>{
+        const next=stops[i+1]; const nextType=next?.arrival||'walk'; const c=colours[nextType]||colours.walk;
+        html+=`<div class="route-chip"><div class="route-chip-top"><span class="route-no">${i+1}</span><time>${s.start}</time></div><b>${places[s.id].name}</b><span>${s.title}</span><a target="_blank" rel="noreferrer" href="${searchUrl(s.id)}">Open stop</a></div>`;
+        if(next){
+          const mode=labels[nextType]||'ROUTE';
+          html+=`<div class="route-connector ${nextType==='walk'?'walk':''}" style="--leg:${c}"><i></i><small>${mode}</small><a target="_blank" rel="noreferrer" href="${dirUrl(s.id,next.id,nextType)}">Directions</a></div>`;
+        }
+      });
+      root.innerHTML=html+'</div><div class="route-swipe-hint">Swipe sideways for the full route · numbered in order · directions open only for the leg you tap.</div>';
     }
     function renderPlan(key,updateUrl=true){
       currentPlan=key;const p=plans[key];
@@ -345,25 +389,15 @@
       document.getElementById('planTitle').textContent=p.name;document.getElementById('planSummary').textContent=p.summary;
       document.getElementById('snapshot').innerHTML=p.snap.map(([l,v,s])=>`<div class="snap"><small>${svgIcon(l==='First GO bus'?'bus':l==='Guelph Central'?'train':l==='IMAX'?'movie':'clock')}${l}</small><strong>${v}</strong><span>${s}</span></div>`).join('');
       document.getElementById('riskLine').innerHTML=`${svgIcon('alert')}<div><b>Read this for Plan ${key}</b><span>${p.risk}</span></div>`;
-      document.getElementById('timeline').innerHTML=p.events.map(e=>{const [start,end,type,title,desc,duration]=e;return `<article class="event" data-type="${type}"><div class="event-time"><strong>${start}</strong><span>${end}</span></div><div class="event-dot">${svgIcon(icons[type])}</div><div class="event-card"><div class="event-symbol">${svgIcon(icons[type])}</div><div><div class="mode-pill">${labels[type]}</div><h3>${title}</h3><p>${desc}</p>${mapAction(e)}</div><span class="duration">${duration}</span></div></article>`}).join('');
+      document.getElementById('timeline').innerHTML=renderTimeline(p.events);
       document.getElementById('budgetTotal').textContent=p.budget;document.getElementById('budgetText').textContent=p.budgetText;
-      document.getElementById('mapPlanName').textContent=`Plan ${key} route`;drawMap();
+      renderRouteSchematic();
       if(updateUrl){const u=new URL(location.href);u.searchParams.set('plan',key);history.replaceState({},'',u)}
     }
-    function drawMap(){
-      if(!window.L){document.getElementById('mapError').style.display='block';return}
-      if(!map){map=L.map('tripMap',{zoomControl:true,scrollWheelZoom:false}).setView([43.7,-79.65],9);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map)}
-      mapLayers.forEach(x=>map.removeLayer(x));mapLayers=[];
-      const events=plans[currentPlan].events,stops=[];
-      events.forEach(e=>{const id=e[6];if(!id)return;const last=stops.at(-1);if(!last||last.id!==id)stops.push({id,time:e[0],title:e[3],type:e[2]})});
-      stops.forEach((s,i)=>{const p=places[s.id];const marker=L.marker(p.coords,{icon:L.divIcon({className:'',html:`<div class="map-pin">${i+1}</div>`,iconSize:[31,31],iconAnchor:[15,15]})}).addTo(map);marker.on('click',()=>{document.getElementById('mapInfo').innerHTML=`<div class="place-no">Stop ${i+1} · ${s.time}</div><h4>${p.name}</h4><p>${s.title}</p><a class="route-link" href="${searchUrl(s.id)}" target="_blank">Open in Maps ↗</a>`});mapLayers.push(marker);if(i){const prev=places[stops[i-1].id].coords;const type=['bus','train','ttc','walk'].includes(s.type)?s.type:'walk';const line=L.polyline([prev,p.coords],{color:colours[type]||'#68717c',weight:type==='walk'?4:5,opacity:.82,dashArray:type==='walk'?'7 8':null}).addTo(map);mapLayers.push(line)}});
-      const bounds=L.latLngBounds(stops.map(s=>places[s.id].coords));map.fitBounds(bounds,{padding:[34,34]});setTimeout(()=>map.invalidateSize(),100)
-    }
     document.querySelectorAll('.plan-tab').forEach(b=>b.addEventListener('click',()=>renderPlan(b.dataset.plan)));
-    document.querySelectorAll('[data-focus]').forEach(b=>b.addEventListener('click',()=>{if(!map)return;const f=b.dataset.focus;if(f==='downtown')map.fitBounds([[43.635,-79.407],[43.663,-79.369]],{padding:[18,18]});else if(f==='square')map.fitBounds([[43.588,-79.650],[43.600,-79.635]],{padding:[18,18]});else drawMap()}));
     document.getElementById('sharePlan').addEventListener('click',async()=>{const b=document.getElementById('sharePlan');try{if(navigator.share)await navigator.share({title:'Babes Full Day Plan',url:location.href});else{await navigator.clipboard.writeText(location.href);b.querySelector('span').textContent='Link copied!';setTimeout(()=>b.querySelector('span').textContent='Share this plan',1800)}}catch(e){}});
-    window.addEventListener('error',e=>{if(String(e.message||'').toLowerCase().includes('leaflet'))document.getElementById('mapError').style.display='block'});
     const q=new URLSearchParams(location.search).get('plan');renderPlan(plans[q]?q:'A',false);
+    if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./sw.js').catch(()=>{});
   </script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#101c2c"/>
+  <circle cx="405" cy="404" r="150" fill="#cffa62"/>
+  <path d="M310-30 455 24 356 286 211 232z" fill="none" stroke="#87d7ff" stroke-width="42" opacity=".65"/>
+  <text x="58" y="230" fill="#fff" font-family="Arial, sans-serif" font-size="105" font-weight="900">BFD</text>
+  <text x="61" y="304" fill="#cffa62" font-family="Arial, sans-serif" font-size="38" font-weight="800">SEP 3</text>
+</svg>

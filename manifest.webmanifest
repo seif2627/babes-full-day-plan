@@ -1,0 +1,9 @@
+﻿{
+  "name": "Babes Full Day Plan",
+  "short_name": "Babes Plan",
+  "start_url": "./?plan=A",
+  "display": "standalone",
+  "background_color": "#f7f4ec",
+  "theme_color": "#101c2c",
+  "icons": [{"src":"./assets/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}
